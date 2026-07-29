@@ -10,7 +10,7 @@ import {
   SafeAreaView,
   StatusBar
 } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+import FeatherIcon from '../components/FeatherIcon';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLocationContext } from '../contexts/LocationContext';
 import { serviceData } from '../data/serviceData';
@@ -33,7 +33,7 @@ export default function HomeScreen({ navigation }: any) {
       {/* Top Header */}
       <View style={[styles.header, { borderBottomColor: colors.cardBorder }]}>
         <View style={styles.locationContainer}>
-          <Feather name="map-pin" size={18} color={colors.primary} />
+          <FeatherIcon name="map-pin" size={18} color={colors.primary} />
           <View style={{ flex: 1 }}>
             <Text style={[styles.locationLabel, { color: colors.textMuted }]}>LOCATION</Text>
             <Text style={[styles.locationValue, { color: colors.textPrimary }]} numberOfLines={1}>
@@ -46,7 +46,7 @@ export default function HomeScreen({ navigation }: any) {
           onPress={toggleTheme}
           style={[styles.themeBtn, { backgroundColor: isDark ? '#27272A' : '#F4F4F5' }]}
         >
-          {isDark ? <Feather name="sun" size={18} color="#FACC15" /> : <Feather name="moon" size={18} color="#18181B" />}
+          {isDark ? <FeatherIcon name="sun" size={18} color="#FACC15" /> : <FeatherIcon name="moon" size={18} color="#18181B" />}
         </TouchableOpacity>
       </View>
 
@@ -67,7 +67,7 @@ export default function HomeScreen({ navigation }: any) {
               { backgroundColor: colors.card, borderColor: colors.cardBorder }
             ]}
           >
-            <Feather name="search" size={18} color={colors.textMuted} />
+            <FeatherIcon name="search" size={18} color={colors.textMuted} />
             <TextInput
               style={[styles.searchInput, { color: colors.textPrimary }]}
               placeholder="Search electrician, plumber, AC repair..."
@@ -131,12 +131,12 @@ export default function HomeScreen({ navigation }: any) {
 
                 <View style={styles.cardFooter}>
                   <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
-                    <Feather name="shield" size={14} color="#10B981" />
+                    <FeatherIcon name="shield" size={14} color="#10B981" />
                     <Text style={{ fontSize: 12, color: colors.textMuted, fontWeight: '500' }}>Verified</Text>
                   </View>
                   <View style={styles.bookAction}>
                     <Text style={{ fontSize: 12, color: colors.primary, fontWeight: '700' }}>Book Now</Text>
-                    <Feather name="arrow-right" size={14} color={colors.primary} />
+                    <FeatherIcon name="arrow-right" size={14} color={colors.primary} />
                   </View>
                 </View>
               </View>
@@ -150,7 +150,7 @@ export default function HomeScreen({ navigation }: any) {
 
           <View style={styles.whyItem}>
             <View style={[styles.whyIcon, { backgroundColor: colors.primary + '20' }]}>
-              <Feather name="shield" size={20} color={colors.primary} />
+              <FeatherIcon name="shield" size={20} color={colors.primary} />
             </View>
             <View style={{ flex: 1 }}>
               <Text style={[styles.whyItemTitle, { color: colors.textPrimary }]}>Background Checked</Text>
@@ -162,7 +162,7 @@ export default function HomeScreen({ navigation }: any) {
 
           <View style={styles.whyItem}>
             <View style={[styles.whyIcon, { backgroundColor: colors.primary + '20' }]}>
-              <Feather name="clock" size={20} color={colors.primary} />
+              <FeatherIcon name="clock" size={20} color={colors.primary} />
             </View>
             <View style={{ flex: 1 }}>
               <Text style={[styles.whyItemTitle, { color: colors.textPrimary }]}>Same Day Service</Text>
@@ -174,7 +174,7 @@ export default function HomeScreen({ navigation }: any) {
 
           <View style={styles.whyItem}>
             <View style={[styles.whyIcon, { backgroundColor: colors.primary + '20' }]}>
-              <Feather name="dollar-sign" size={20} color={colors.primary} />
+              <FeatherIcon name="dollar-sign" size={20} color={colors.primary} />
             </View>
             <View style={{ flex: 1 }}>
               <Text style={[styles.whyItemTitle, { color: colors.textPrimary }]}>Upfront Pricing</Text>

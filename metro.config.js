@@ -1,9 +1,24 @@
 const { getDefaultConfig } = require('expo/metro-config');
+const path = require('path');
 
 const config = getDefaultConfig(__dirname);
 
-// Force Metro to transpile packages that use modern class syntax (static fields, private methods)
-// These are NOT transformed by default since they live in node_modules
+// By default Metro skips transforming node_modules.
+// @expo/vector-icons vendor files use class fields (static defaultProps = ...)
+// which Hermes cannot run untransformed. Force Babel to transform them.
+const defaultExcludes = [
+  'react-native',
+  '@react-native',
+  '@react-navigation',
+  'expo',
+  '@expo',
+  '@unimodules',
+  'unimodules',
+  'native-base',
+  'react-native-svg',
+  '@sentry',
+];
+
 config.transformer.getTransformOptions = async () => ({
   transform: {
     experimentalImportSupport: false,
@@ -11,8 +26,7 @@ config.transformer.getTransformOptions = async () => ({
   },
 });
 
-// Force transform these packages through Babel (they use static class fields)
-config.resolver.nodeModulesPaths = [require('path').resolve(__dirname, 'node_modules')];
+// Allow all @expo/* and react-native/* packages to be Babel-transformed
 config.resolver.unstable_enablePackageExports = false;
 
 module.exports = config;

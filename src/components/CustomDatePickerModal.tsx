@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, Modal, StyleSheet } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+import FeatherIcon from './FeatherIcon';
 import { useTheme } from '../contexts/ThemeContext';
 
 interface CustomDatePickerModalProps {
@@ -87,11 +87,11 @@ export default function CustomDatePickerModal({
           {/* Header */}
           <View style={styles.header}>
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-              <Feather name="calendar" size={18} color={colors.primary} />
+              <FeatherIcon name="calendar" size={18} color={colors.primary} />
               <Text style={[styles.title, { color: colors.textPrimary }]}>Select Date</Text>
             </View>
             <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
-              <Feather name="x" size={20} color={colors.textSecondary} />
+              <FeatherIcon name="x" size={20} color={colors.textSecondary} />
             </TouchableOpacity>
           </View>
 
@@ -105,13 +105,13 @@ export default function CustomDatePickerModal({
                 onPress={() => setViewDate(new Date(year, month - 1, 1))}
                 style={[styles.navBtn, { backgroundColor: isDark ? '#27272A' : '#F4F4F5' }]}
               >
-                <Feather name="chevron-left" size={18} color={colors.textPrimary} />
+                <FeatherIcon name="chevron-left" size={18} color={colors.textPrimary} />
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={() => setViewDate(new Date(year, month + 1, 1))}
                 style={[styles.navBtn, { backgroundColor: isDark ? '#27272A' : '#F4F4F5' }]}
               >
-                <Feather name="chevron-right" size={18} color={colors.textPrimary} />
+                <FeatherIcon name="chevron-right" size={18} color={colors.textPrimary} />
               </TouchableOpacity>
             </View>
           </View>

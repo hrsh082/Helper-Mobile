@@ -9,7 +9,7 @@ import {
   SafeAreaView,
   StatusBar
 } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+import FeatherIcon from '../components/FeatherIcon';
 import { useTheme } from '../contexts/ThemeContext';
 import { useBooking } from '../contexts/BookingContext';
 import { useLocationContext } from '../contexts/LocationContext';
@@ -58,7 +58,7 @@ export default function ServiceDetailScreen({ route, navigation }: any) {
       {/* Header Bar */}
       <View style={[styles.header, { borderBottomColor: colors.cardBorder }]}>
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backBtn}>
-          <Feather name="arrow-left" size={20} color={colors.textPrimary} />
+          <FeatherIcon name="arrow-left" size={20} color={colors.textPrimary} />
         </TouchableOpacity>
         <Text style={[styles.headerTitle, { color: colors.textPrimary }]} numberOfLines={1}>
           {service.title}
@@ -91,14 +91,14 @@ export default function ServiceDetailScreen({ route, navigation }: any) {
           {/* Service Location Card */}
           <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
             <View style={styles.cardHeader}>
-              <Feather name="map-pin" size={18} color={colors.primary} />
+              <FeatherIcon name="map-pin" size={18} color={colors.primary} />
               <Text style={[styles.cardTitle, { color: colors.textPrimary }]}>Service Location</Text>
             </View>
             <View style={[styles.locationBox, { backgroundColor: isDark ? '#09090B' : '#F4F4F5' }]}>
               <Text style={[styles.locationText, { color: colors.textPrimary }]} numberOfLines={1}>
                 {locationText}
               </Text>
-              <Feather name="crosshair" size={16} color={colors.primary} />
+              <FeatherIcon name="crosshair" size={16} color={colors.primary} />
             </View>
           </View>
 
@@ -127,7 +127,7 @@ export default function ServiceDetailScreen({ route, navigation }: any) {
                     {bestProvider.name}
                   </Text>
                   <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, marginTop: 4 }}>
-                    <Feather name="star" size={14} color="#EAB308" />
+                    <FeatherIcon name="star" size={14} color="#EAB308" />
                     <Text style={{ fontSize: 12, fontWeight: '700', color: '#EAB308' }}>
                       {bestProvider.rating}
                     </Text>
@@ -161,7 +161,7 @@ export default function ServiceDetailScreen({ route, navigation }: any) {
             <View style={{ gap: 10 }}>
               {service.features.map((feature, idx) => (
                 <View key={idx} style={{ flexDirection: 'row', alignItems: 'center', gap: 10 }}>
-                  <Feather name="check-circle" size={16} color={colors.primary} />
+                  <FeatherIcon name="check-circle" size={16} color={colors.primary} />
                   <Text style={{ fontSize: 13, color: colors.textSecondary, flex: 1 }}>{feature}</Text>
                 </View>
               ))}
