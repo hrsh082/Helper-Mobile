@@ -10,18 +10,7 @@ import {
   SafeAreaView,
   StatusBar
 } from 'react-native';
-import {
-  Search,
-  MapPin,
-  Moon,
-  Sun,
-  ShieldCheck,
-  Zap,
-  Star,
-  ArrowRight,
-  Clock,
-  Wallet
-} from 'lucide-react-native';
+import { Feather } from '@expo/vector-icons';
 import { useTheme } from '../contexts/ThemeContext';
 import { useLocationContext } from '../contexts/LocationContext';
 import { serviceData } from '../data/serviceData';
@@ -44,7 +33,7 @@ export default function HomeScreen({ navigation }: any) {
       {/* Top Header */}
       <View style={[styles.header, { borderBottomColor: colors.cardBorder }]}>
         <View style={styles.locationContainer}>
-          <MapPin size={18} color={colors.primary} />
+          <Feather name="map-pin" size={18} color={colors.primary} />
           <View style={{ flex: 1 }}>
             <Text style={[styles.locationLabel, { color: colors.textMuted }]}>LOCATION</Text>
             <Text style={[styles.locationValue, { color: colors.textPrimary }]} numberOfLines={1}>
@@ -57,7 +46,7 @@ export default function HomeScreen({ navigation }: any) {
           onPress={toggleTheme}
           style={[styles.themeBtn, { backgroundColor: isDark ? '#27272A' : '#F4F4F5' }]}
         >
-          {isDark ? <Sun size={18} color="#FACC15" /> : <Moon size={18} color="#18181B" />}
+          {isDark ? <Feather name="sun" size={18} color="#FACC15" /> : <Feather name="moon" size={18} color="#18181B" />}
         </TouchableOpacity>
       </View>
 
@@ -78,7 +67,7 @@ export default function HomeScreen({ navigation }: any) {
               { backgroundColor: colors.card, borderColor: colors.cardBorder }
             ]}
           >
-            <Search size={18} color={colors.textMuted} />
+            <Feather name="search" size={18} color={colors.textMuted} />
             <TextInput
               style={[styles.searchInput, { color: colors.textPrimary }]}
               placeholder="Search electrician, plumber, AC repair..."
@@ -142,12 +131,12 @@ export default function HomeScreen({ navigation }: any) {
 
                 <View style={styles.cardFooter}>
                   <View style={{ flexDirection: 'row', alignItems: 'center', gap: 4 }}>
-                    <ShieldCheck size={14} color="#10B981" />
+                    <Feather name="shield" size={14} color="#10B981" />
                     <Text style={{ fontSize: 12, color: colors.textMuted, fontWeight: '500' }}>Verified</Text>
                   </View>
                   <View style={styles.bookAction}>
                     <Text style={{ fontSize: 12, color: colors.primary, fontWeight: '700' }}>Book Now</Text>
-                    <ArrowRight size={14} color={colors.primary} />
+                    <Feather name="arrow-right" size={14} color={colors.primary} />
                   </View>
                 </View>
               </View>
@@ -161,7 +150,7 @@ export default function HomeScreen({ navigation }: any) {
 
           <View style={styles.whyItem}>
             <View style={[styles.whyIcon, { backgroundColor: colors.primary + '20' }]}>
-              <ShieldCheck size={20} color={colors.primary} />
+              <Feather name="shield" size={20} color={colors.primary} />
             </View>
             <View style={{ flex: 1 }}>
               <Text style={[styles.whyItemTitle, { color: colors.textPrimary }]}>Background Checked</Text>
@@ -173,7 +162,7 @@ export default function HomeScreen({ navigation }: any) {
 
           <View style={styles.whyItem}>
             <View style={[styles.whyIcon, { backgroundColor: colors.primary + '20' }]}>
-              <Clock size={20} color={colors.primary} />
+              <Feather name="clock" size={20} color={colors.primary} />
             </View>
             <View style={{ flex: 1 }}>
               <Text style={[styles.whyItemTitle, { color: colors.textPrimary }]}>Same Day Service</Text>
@@ -185,7 +174,7 @@ export default function HomeScreen({ navigation }: any) {
 
           <View style={styles.whyItem}>
             <View style={[styles.whyIcon, { backgroundColor: colors.primary + '20' }]}>
-              <Wallet size={20} color={colors.primary} />
+              <Feather name="dollar-sign" size={20} color={colors.primary} />
             </View>
             <View style={{ flex: 1 }}>
               <Text style={[styles.whyItemTitle, { color: colors.textPrimary }]}>Upfront Pricing</Text>

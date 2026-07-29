@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, Modal, StyleSheet } from 'react-native';
-import { ChevronDown, X, Check } from 'lucide-react-native';
+import { Feather } from '@expo/vector-icons';
 import { useTheme } from '../contexts/ThemeContext';
 
 export interface DropdownOption {
@@ -35,7 +35,7 @@ export default function CustomDropdownModal({
           <View style={[styles.header, { borderBottomColor: colors.cardBorder }]}>
             <Text style={[styles.title, { color: colors.textPrimary }]}>{title}</Text>
             <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
-              <X size={20} color={colors.textSecondary} />
+              <Feather name="x" size={20} color={colors.textSecondary} />
             </TouchableOpacity>
           </View>
 
@@ -64,7 +64,7 @@ export default function CustomDropdownModal({
                   >
                     {opt.label}
                   </Text>
-                  {isSelected && <Check size={18} color={colors.primary} />}
+                  {isSelected && <Feather name="check" size={18} color={colors.primary} />}
                 </TouchableOpacity>
               );
             })}

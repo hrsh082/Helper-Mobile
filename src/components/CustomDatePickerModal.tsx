@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, Modal, StyleSheet, ScrollView } from 'react-native';
-import { Calendar, ChevronLeft, ChevronRight, X } from 'lucide-react-native';
+import { View, Text, TouchableOpacity, Modal, StyleSheet } from 'react-native';
+import { Feather } from '@expo/vector-icons';
 import { useTheme } from '../contexts/ThemeContext';
 
 interface CustomDatePickerModalProps {
@@ -87,11 +87,11 @@ export default function CustomDatePickerModal({
           {/* Header */}
           <View style={styles.header}>
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-              <Calendar size={18} color={colors.primary} />
+              <Feather name="calendar" size={18} color={colors.primary} />
               <Text style={[styles.title, { color: colors.textPrimary }]}>Select Date</Text>
             </View>
             <TouchableOpacity onPress={onClose} style={styles.closeBtn}>
-              <X size={20} color={colors.textSecondary} />
+              <Feather name="x" size={20} color={colors.textSecondary} />
             </TouchableOpacity>
           </View>
 
@@ -105,13 +105,13 @@ export default function CustomDatePickerModal({
                 onPress={() => setViewDate(new Date(year, month - 1, 1))}
                 style={[styles.navBtn, { backgroundColor: isDark ? '#27272A' : '#F4F4F5' }]}
               >
-                <ChevronLeft size={18} color={colors.textPrimary} />
+                <Feather name="chevron-left" size={18} color={colors.textPrimary} />
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={() => setViewDate(new Date(year, month + 1, 1))}
                 style={[styles.navBtn, { backgroundColor: isDark ? '#27272A' : '#F4F4F5' }]}
               >
-                <ChevronRight size={18} color={colors.textPrimary} />
+                <Feather name="chevron-right" size={18} color={colors.textPrimary} />
               </TouchableOpacity>
             </View>
           </View>

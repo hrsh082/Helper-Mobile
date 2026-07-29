@@ -9,17 +9,7 @@ import {
   SafeAreaView,
   StatusBar
 } from 'react-native';
-import {
-  ArrowLeft,
-  Mail,
-  Lock,
-  Eye,
-  EyeOff,
-  Check,
-  User,
-  Phone,
-  ArrowRight
-} from 'lucide-react-native';
+import { Feather } from '@expo/vector-icons';
 import { useTheme } from '../contexts/ThemeContext';
 
 export default function SignInScreen({ navigation }: any) {
@@ -70,7 +60,7 @@ export default function SignInScreen({ navigation }: any) {
       {/* Top Header */}
       <View style={[styles.header, { borderBottomColor: colors.cardBorder }]}>
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backBtn}>
-          <ArrowLeft size={20} color={colors.textPrimary} />
+          <Feather name="arrow-left" size={20} color={colors.textPrimary} />
         </TouchableOpacity>
         <Text style={[styles.headerTitle, { color: colors.textPrimary }]}>Account</Text>
         <View style={{ width: 36 }} />
@@ -130,7 +120,7 @@ export default function SignInScreen({ navigation }: any) {
             <View>
               <Text style={[styles.fieldLabel, { color: colors.textMuted }]}>EMAIL ADDRESS</Text>
               <View style={[styles.inputBox, { backgroundColor: colors.inputBg, borderColor: colors.cardBorder }]}>
-                <Mail size={18} color={colors.textMuted} />
+                <Feather name="mail" size={18} color={colors.textMuted} />
                 <TextInput
                   style={[styles.input, { color: colors.textPrimary }]}
                   placeholder="name@example.com"
@@ -146,7 +136,7 @@ export default function SignInScreen({ navigation }: any) {
             <View>
               <Text style={[styles.fieldLabel, { color: colors.textMuted }]}>PASSWORD</Text>
               <View style={[styles.inputBox, { backgroundColor: colors.inputBg, borderColor: colors.cardBorder }]}>
-                <Lock size={18} color={colors.textMuted} />
+                <Feather name="lock" size={18} color={colors.textMuted} />
                 <TextInput
                   style={[styles.input, { color: colors.textPrimary }]}
                   placeholder="Enter your password"
@@ -156,7 +146,7 @@ export default function SignInScreen({ navigation }: any) {
                   onChangeText={setPassword}
                 />
                 <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-                  {showPassword ? <EyeOff size={18} color={colors.textMuted} /> : <Eye size={18} color={colors.textMuted} />}
+                  {showPassword ? <Feather name="eye-off" size={18} color={colors.textMuted} /> : <Feather name="eye" size={18} color={colors.textMuted} />}
                 </TouchableOpacity>
               </View>
             </View>
@@ -173,14 +163,14 @@ export default function SignInScreen({ navigation }: any) {
                   rememberMe && { backgroundColor: colors.primary }
                 ]}
               >
-                {rememberMe && <Check size={12} color="#FFFFFF" strokeWidth={3} />}
+                {rememberMe && <Feather name="check" size={12} color="#FFFFFF" />}
               </View>
               <Text style={{ fontSize: 13, color: colors.textSecondary }}>Remember me on this device</Text>
             </TouchableOpacity>
 
             <TouchableOpacity onPress={handleSignIn} style={[styles.submitBtn, { backgroundColor: colors.primary }]}>
               <Text style={styles.submitBtnText}>Sign In</Text>
-              <ArrowRight size={18} color="#FFFFFF" />
+              <Feather name="arrow-right" size={18} color="#FFFFFF" />
             </TouchableOpacity>
           </View>
         )}
@@ -191,7 +181,7 @@ export default function SignInScreen({ navigation }: any) {
             <View>
               <Text style={[styles.fieldLabel, { color: colors.textMuted }]}>FULL NAME</Text>
               <View style={[styles.inputBox, { backgroundColor: colors.inputBg, borderColor: colors.cardBorder }]}>
-                <User size={18} color={colors.textMuted} />
+                <Feather name="user" size={18} color={colors.textMuted} />
                 <TextInput
                   style={[styles.input, { color: colors.textPrimary }]}
                   placeholder="John Doe"
@@ -205,7 +195,7 @@ export default function SignInScreen({ navigation }: any) {
             <View>
               <Text style={[styles.fieldLabel, { color: colors.textMuted }]}>PHONE NUMBER</Text>
               <View style={[styles.inputBox, { backgroundColor: colors.inputBg, borderColor: colors.cardBorder }]}>
-                <Phone size={18} color={colors.textMuted} />
+                <Feather name="phone" size={18} color={colors.textMuted} />
                 <TextInput
                   style={[styles.input, { color: colors.textPrimary }]}
                   placeholder="+91 98765 43210"
@@ -220,7 +210,7 @@ export default function SignInScreen({ navigation }: any) {
             <View>
               <Text style={[styles.fieldLabel, { color: colors.textMuted }]}>EMAIL ADDRESS</Text>
               <View style={[styles.inputBox, { backgroundColor: colors.inputBg, borderColor: colors.cardBorder }]}>
-                <Mail size={18} color={colors.textMuted} />
+                <Feather name="mail" size={18} color={colors.textMuted} />
                 <TextInput
                   style={[styles.input, { color: colors.textPrimary }]}
                   placeholder="name@example.com"
@@ -236,7 +226,7 @@ export default function SignInScreen({ navigation }: any) {
             <View>
               <Text style={[styles.fieldLabel, { color: colors.textMuted }]}>PASSWORD</Text>
               <View style={[styles.inputBox, { backgroundColor: colors.inputBg, borderColor: colors.cardBorder }]}>
-                <Lock size={18} color={colors.textMuted} />
+                <Feather name="lock" size={18} color={colors.textMuted} />
                 <TextInput
                   style={[styles.input, { color: colors.textPrimary }]}
                   placeholder="Create password"
@@ -246,14 +236,14 @@ export default function SignInScreen({ navigation }: any) {
                   onChangeText={setSignupPassword}
                 />
                 <TouchableOpacity onPress={() => setShowSignupPassword(!showSignupPassword)}>
-                  {showSignupPassword ? <EyeOff size={18} color={colors.textMuted} /> : <Eye size={18} color={colors.textMuted} />}
+                  {showSignupPassword ? <Feather name="eye-off" size={18} color={colors.textMuted} /> : <Feather name="eye" size={18} color={colors.textMuted} />}
                 </TouchableOpacity>
               </View>
             </View>
 
             <TouchableOpacity onPress={handleSignUp} style={[styles.submitBtn, { backgroundColor: colors.primary }]}>
               <Text style={styles.submitBtnText}>Create Account</Text>
-              <ArrowRight size={18} color="#FFFFFF" />
+              <Feather name="arrow-right" size={18} color="#FFFFFF" />
             </TouchableOpacity>
           </View>
         )}

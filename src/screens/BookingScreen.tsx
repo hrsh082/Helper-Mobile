@@ -9,19 +9,7 @@ import {
   SafeAreaView,
   StatusBar
 } from 'react-native';
-import {
-  ArrowLeft,
-  Calendar,
-  Clock,
-  MapPin,
-  CheckCircle2,
-  Wrench,
-  UserCheck,
-  Tag,
-  ShieldAlert,
-  Sparkles,
-  BadgeCheck
-} from 'lucide-react-native';
+import { Feather } from '@expo/vector-icons';
 import { useTheme } from '../contexts/ThemeContext';
 import { useBooking } from '../contexts/BookingContext';
 import CustomDatePickerModal from '../components/CustomDatePickerModal';
@@ -60,7 +48,7 @@ export default function BookingScreen({ navigation }: any) {
     return (
       <SafeAreaView style={[styles.container, { backgroundColor: colors.bg, justifyContent: 'center', padding: 24 }]}>
         <View style={{ alignItems: 'center' }}>
-          <BadgeCheck size={64} color="#10B981" />
+          <Feather name="check-circle" size={64} color="#10B981" />
           <Text style={[styles.successTitle, { color: colors.textPrimary }]}>Booking Confirmed!</Text>
           <Text style={[styles.successDesc, { color: colors.textSecondary }]}>
             Thank you! Your service request has been submitted successfully. Our team will contact you shortly to confirm timing.
@@ -103,7 +91,7 @@ export default function BookingScreen({ navigation }: any) {
       {/* Header */}
       <View style={[styles.header, { borderBottomColor: colors.cardBorder }]}>
         <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backBtn}>
-          <ArrowLeft size={20} color={colors.textPrimary} />
+          <Feather name="arrow-left" size={20} color={colors.textPrimary} />
         </TouchableOpacity>
         <Text style={[styles.headerTitle, { color: colors.textPrimary }]}>Service Booking</Text>
         <View style={{ width: 36 }} />
@@ -159,7 +147,7 @@ export default function BookingScreen({ navigation }: any) {
                 onPress={() => setDateModalOpen(true)}
                 style={[styles.inputBox, { backgroundColor: colors.inputBg, borderColor: colors.cardBorder }]}
               >
-                <Calendar size={18} color={colors.primary} />
+                <Feather name="calendar" size={18} color={colors.primary} />
                 <Text style={{ color: bookingDetails.date ? colors.textPrimary : colors.textMuted, flex: 1, fontSize: 14 }}>
                   {formatDisplayDate(bookingDetails.date)}
                 </Text>
@@ -173,7 +161,7 @@ export default function BookingScreen({ navigation }: any) {
                 onPress={() => setTimeModalOpen(true)}
                 style={[styles.inputBox, { backgroundColor: colors.inputBg, borderColor: colors.cardBorder }]}
               >
-                <Clock size={18} color={colors.primary} />
+                <Feather name="clock" size={18} color={colors.primary} />
                 <Text style={{ color: bookingDetails.time ? colors.textPrimary : colors.textMuted, flex: 1, fontSize: 14 }}>
                   {selectedTimeLabel}
                 </Text>
@@ -184,7 +172,7 @@ export default function BookingScreen({ navigation }: any) {
             <View>
               <Text style={[styles.fieldLabel, { color: colors.textMuted }]}>SERVICE LOCATION</Text>
               <View style={[styles.inputBox, { backgroundColor: colors.inputBg, borderColor: colors.cardBorder }]}>
-                <MapPin size={18} color={colors.primary} />
+                <Feather name="map-pin" size={18} color={colors.primary} />
                 <Text style={{ color: colors.textPrimary, flex: 1, fontSize: 14 }} numberOfLines={1}>
                   {bookingDetails.address || 'Ahmedabad, Gujarat'}
                 </Text>
@@ -215,7 +203,7 @@ export default function BookingScreen({ navigation }: any) {
                 onPress={() => setUrgencyModalOpen(true)}
                 style={[styles.inputBox, { backgroundColor: colors.inputBg, borderColor: colors.cardBorder }]}
               >
-                <ShieldAlert size={18} color={colors.primary} />
+                <Feather name="alert-circle" size={18} color={colors.primary} />
                 <Text style={{ color: bookingDetails.urgency ? colors.textPrimary : colors.textMuted, flex: 1, fontSize: 14 }}>
                   {selectedUrgencyLabel}
                 </Text>
@@ -238,7 +226,7 @@ export default function BookingScreen({ navigation }: any) {
               <View style={{ gap: 14 }}>
                 <View style={styles.summaryRow}>
                   <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-                    <Wrench size={16} color={colors.primary} />
+                    <Feather name="tool" size={16} color={colors.primary} />
                     <Text style={{ color: colors.textMuted, fontSize: 13 }}>Service</Text>
                   </View>
                   <Text style={{ color: colors.textPrimary, fontWeight: '700', fontSize: 14 }}>
@@ -248,7 +236,7 @@ export default function BookingScreen({ navigation }: any) {
 
                 <View style={styles.summaryRow}>
                   <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-                    <UserCheck size={16} color={colors.primary} />
+                    <Feather name="user-check" size={16} color={colors.primary} />
                     <Text style={{ color: colors.textMuted, fontSize: 13 }}>Professional</Text>
                   </View>
                   <Text style={{ color: colors.textPrimary, fontWeight: '600', fontSize: 14 }}>
@@ -258,7 +246,7 @@ export default function BookingScreen({ navigation }: any) {
 
                 <View style={styles.summaryRow}>
                   <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-                    <Tag size={16} color={colors.primary} />
+                    <Feather name="tag" size={16} color={colors.primary} />
                     <Text style={{ color: colors.textMuted, fontSize: 13 }}>Price</Text>
                   </View>
                   <Text style={{ color: colors.primary, fontWeight: '800', fontSize: 16 }}>
@@ -268,7 +256,7 @@ export default function BookingScreen({ navigation }: any) {
 
                 <View style={styles.summaryRow}>
                   <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-                    <Calendar size={16} color={colors.primary} />
+                    <Feather name="calendar" size={16} color={colors.primary} />
                     <Text style={{ color: colors.textMuted, fontSize: 13 }}>Date</Text>
                   </View>
                   <Text style={{ color: colors.textPrimary, fontWeight: '600', fontSize: 13 }}>
@@ -278,7 +266,7 @@ export default function BookingScreen({ navigation }: any) {
 
                 <View style={styles.summaryRow}>
                   <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-                    <Clock size={16} color={colors.primary} />
+                    <Feather name="clock" size={16} color={colors.primary} />
                     <Text style={{ color: colors.textMuted, fontSize: 13 }}>Time</Text>
                   </View>
                   <Text style={{ color: colors.textPrimary, fontWeight: '600', fontSize: 13 }}>
@@ -291,7 +279,7 @@ export default function BookingScreen({ navigation }: any) {
             {/* Next Steps Box */}
             <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.cardBorder }]}>
               <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 12 }}>
-                <Sparkles size={18} color={colors.primary} />
+                <Feather name="zap" size={18} color={colors.primary} />
                 <Text style={[styles.stepTitle, { color: colors.textPrimary }]}>What happens next?</Text>
               </View>
 
