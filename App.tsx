@@ -10,7 +10,14 @@ import ServiceDetailScreen from './src/screens/ServiceDetailScreen';
 import BookingScreen from './src/screens/BookingScreen';
 import SignInScreen from './src/screens/SignInScreen';
 
-const Stack = createNativeStackNavigator();
+export type RootStackParamList = {
+  Home: undefined;
+  ServiceDetail: { serviceId: string };
+  Booking: undefined;
+  SignIn: undefined;
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function App() {
   return (
